@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import LeftPanel from './components/LeftPanel';
+import RightPanel from './components/RightPanel';
 
-function App() {
+
+const App: React.FC = () => {
+  const [favori, setFavori] = useState<Boolean>(true)
+  console.log(favori);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+      <LeftPanel setFavori={setFavori} />
+      <RightPanel favori={favori} />
     </div>
   );
-}
+};
 
 export default App;
